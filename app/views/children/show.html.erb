@@ -1,0 +1,18 @@
+<br>
+
+<p id="notice"><%= notice %></p>
+
+<h3>Filho</h3>
+
+<br>
+
+<p><span class="text-primary">Nome:</span> <%= @child.name %></p>
+<p><span class="text-primary">Sexo:</span>  <%= pegar_sexo(@child.sex) %></p>
+<p><span class="text-primary">Pai:</span> <%= @child.father.name %></p>
+<p><span class="text-primary">Cadastrado em:</span> <%= @child.created_at %></p>
+<p><span class="text-primary">Atualizado em:</span> <%= @child.updated_at %></p>
+
+<br>
+
+<%= link_to 'Editar', edit_child_path(@child), class:'btn btn-warning' %>
+<%= link_to 'Voltar', children_path, class:'btn btn-default' %>

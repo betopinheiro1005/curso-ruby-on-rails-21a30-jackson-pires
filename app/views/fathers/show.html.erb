@@ -1,0 +1,36 @@
+<br>
+
+<div>
+
+  <p id="notice"><%= notice %></p>
+
+  <h3>Pai</h3>
+
+  <br>
+
+  <p><span class="text-primary">Nome:</span> <%= @father.name %></p>
+  <p><span class="text-primary">CPF:</span>  <%= @father.cpf %></p>
+  <p><span class="text-primary">Email:</span> <%= @father.email %></p>
+  <p><span class="text-primary">Profissão:</span> <%= @father.occupation_description %></p>
+
+    <% if @father.children.count > 0 %>
+    <p class="text-primary">Filhos:</p>
+    <% @father.children.each do |child| %>
+        <ul>
+          <li>
+            <%= "#{child.name} - #{pegar_sexo(child.sex)}" %>
+          </li>
+        </ul>
+      <% end %>
+    <% else %>
+      <p><span class="text-primary">Filhos:</span> Não tem</p>
+    <% end %>
+    <p><span class="text-primary">Cadastrado em:</span> <%= @father.created_at %></p>
+    <p><span class="text-primary">Última atualização:</span> <%= @father.updated_at %></p>
+    <br>
+
+    <%= link_to 'Editar', edit_father_path(@father), class:'btn btn-warning' %>
+    <%= link_to 'Voltar', fathers_path, class:'btn btn-default' %>
+
+</div>
+

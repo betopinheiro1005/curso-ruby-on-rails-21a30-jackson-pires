@@ -1,0 +1,34 @@
+    <p id="notice"><%= notice %></p>
+
+    <h1>Profissões</h1>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Cadastrada em:</th>
+        <th>Atualizada em:</th>
+        <th colspan="3">Ações</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @occupations.each do |occupation| %>
+        <tr>
+          <td><%= occupation.description %></td>
+          <td><%= occupation.created_at %></td>
+          <td><%= occupation.updated_at %></td>
+          <td><%= link_to 'Detalhes', occupation, class: "btn btn-success" %></td>
+          <td><%= link_to 'Editar', edit_occupation_path(occupation), class: "btn btn-warning" %></td>
+          <td><%= link_to 'Eliminar', occupation, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'Nova Profissão', new_occupation_path, class: "btn btn-primary" %>
+    <%= link_to 'Página Inicial', welcome_index_path, class: 'btn btn-default' %>
+
+

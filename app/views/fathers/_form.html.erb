@@ -1,0 +1,43 @@
+<%= form_for @father, html: { multipart: true } do |form| %>
+  <% if father.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(father.errors.count, "erro encontrado!", "erros encontrados!") %> </h2>
+
+      <ul>
+      <% father.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cpf %>
+    <%= form.text_field :cpf, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :occupation_id %>
+    <%= form.collection_select(:occupation_id,
+                               @occupations,
+                               :id, :description,
+                               { include_blank: "Selecione" }, class:'form-control')
+    %>
+  </div>
+
+  <div>
+    <%= form.submit class: "btn btn-primary"  %>
+  </div>
+
+  <br>
+<% end %>

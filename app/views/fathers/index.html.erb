@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pais</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>Email</th>
+      <th>Profissão</th>
+      <th colspan="3">Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fathers.each do |father| %>
+      <tr>
+        <td><%= father.name %></td>
+        <td><%= father.cpf %></td>
+        <td><%= father.email %></td>
+        <td><%= father.occupation_description %></td>
+        <td><%= link_to 'Detalhes', father, class:'btn btn-success' %></td>
+        <td><%= link_to  'Editar', edit_father_path(father), class:'btn btn-warning' %></td>
+        <td><%= link_to 'Excluir', father, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' }, class:'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Pai', new_father_path, class: 'btn btn-primary' %>
+<%= link_to 'Página Inicial', welcome_index_path, class: 'btn btn-default' %>

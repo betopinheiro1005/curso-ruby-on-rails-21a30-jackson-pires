@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Profissão</h3>
+
+<br>
+
+<p><span class="text-primary">Description:</span>  <%= @occupation.description %></p>
+
+<% if @occupation.fathers.count > 0 %>
+  <p class="text-primary">Pais:</p>
+  <% @occupation.fathers.each do |pai| %>
+    <ul>
+      <li>
+        <%= pai.name %>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p><span class="text-primary">Filhos:</span> Não tem</p>
+<% end %>
+
+<p><span class="text-primary">Cadastrada em:</span>  <%= @occupation.created_at %></p>
+<p><span class="text-primary">Atualizada em:</span>  <%= @occupation.updated_at %></p>
+
+<br>
+
+<%= link_to 'Editar', edit_occupation_path(@occupation), class: "btn btn-primary" %>
+<%= link_to 'Voltar', occupations_path, class: "btn btn-default" %>
